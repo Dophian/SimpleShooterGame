@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBulletTag: PlayerBullet
-  hp: 9999
+  hp: 20
   OnDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -284,4 +284,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootInterval: 1.5
   bulletSpeed: 3
+  shootStopYPosition: -2
   bulletPrefab: {fileID: 3390922134618128219, guid: 7fe981e2f5285d841894213128292ee3, type: 3}
