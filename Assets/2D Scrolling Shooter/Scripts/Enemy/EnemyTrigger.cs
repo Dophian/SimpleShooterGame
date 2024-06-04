@@ -38,6 +38,17 @@ public class EnemyTrigger : MonoBehaviour
                 // 죽음 이벤트 발행.
                 OnDead?.Invoke(transform.position);
 
+                // 점수 획득 처리.
+                // 1. 점수 관리자 검색
+                //var scoreManager = FindFirstObjectByType<ScoreManager>();
+
+                // 2. 점수 관리자에 점수 획득 정보 전달.
+                //scoreManager.AddScore(100);
+
+                // 싱글톤 점수 관리자에게 바로 점수 획득 전달.
+                ScoreManager.Get().AddScore(100);
+                //ScoreManager.Instance.AddScore(100);
+
                 // 삭제.
                 Destroy(gameObject);
             }
