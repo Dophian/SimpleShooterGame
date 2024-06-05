@@ -8,12 +8,11 @@ using UnityEngine;
 public class Score
 {
     // 플레이어의 현재 점수.
-    //[SerializeField]
     //[NonSerialized]
-    private int score = 0;
+    [SerializeField] public int score = 0;
 
     // 플레이어의 최고 점수 (기록).
-    [SerializeField] private int bestScore = 0;
+    [SerializeField] public int bestScore = 0;
 
     // 텍스트 UI 참조 변수.
     private TMPro.TextMeshProUGUI scoreText;
@@ -31,7 +30,6 @@ public class Score
 
         // 2. 불러온 문자열 값을 객체로 복원 (역질렬화).
         bestScore = JsonUtility.FromJson<Score>(jsonString).bestScore;
-
 
         // UI 업데이트
         if (scoreText != null)
@@ -53,6 +51,17 @@ public class Score
     {
         this.scoreText = scoreText;
         this.bestScoreText = bestScoreText;
+    }
+
+    // 점수를 파일로 저장하는 함수.
+    public void Save()
+    {
+        // 1. 저장할 객체를 JSON 문자열로 생성(변환).
+        string jsonString = JsonUtility.ToJson(this);
+
+        // 2. 변환한 JSON 문자열을 파일로 저장.
+        // 2-1 파일로 저장하려면 경로(저장하려는 위치)와 파일 이름, 확장자를 지정해야함.
+        File.WriteAllText("Assets/Score.txt", jsonString);
     }
 
     // 점수 획득 함수.

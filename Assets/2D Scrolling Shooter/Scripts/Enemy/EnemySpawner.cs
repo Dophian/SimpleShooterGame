@@ -25,7 +25,13 @@ public class EnemySpawner : MonoBehaviour
     // 적 생성 시 사용할 배열 인덱스.
     private int currentIndex = 0;
 
-    private void Awake()
+    //private void Awake()
+    //{
+    //    Invoke("Spawn", spawnInfo[currentIndex].SpwanTime);
+    //}
+
+    // 게임이 시작되면 (Fade 애니메이션이 종료) 실행할 함수.
+    public void OnGameStarted()
     {
         Invoke("Spawn", spawnInfo[currentIndex].SpwanTime);
     }

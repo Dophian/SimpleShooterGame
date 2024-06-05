@@ -32,6 +32,12 @@ public class PlayerShoot : MonoBehaviour
 
     private void Update()
     {
+        // 게임이 시작되지 않았으면 바로 리턴.
+        if (!GameManager.Instance.IsGameStarted)
+        {
+            return;
+        }
+
         // 타이머 업데이트.
         elapsedTime += Time.deltaTime;
 

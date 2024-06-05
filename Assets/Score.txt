@@ -1,1 +1,1 @@
-{"bestScore":1100}
+{"score":1000,"bestScore":1100}

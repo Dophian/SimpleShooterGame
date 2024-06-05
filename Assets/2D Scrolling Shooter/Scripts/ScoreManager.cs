@@ -17,6 +17,12 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI scoreText;
     [SerializeField] private TMPro.TextMeshProUGUI bestScoreText;
 
+    // 싱글톤 접근 프로퍼티.
+    public static ScoreManager Instance
+    {
+        get { return instance; } 
+    }
+
     // 싱글톤 접근 메세지 - 공개 메소드.
     public static ScoreManager Get()
     {
@@ -28,6 +34,13 @@ public class ScoreManager : MonoBehaviour
     {
         score.Add(gainScore);
     }
+
+    // 점수 저장 함수 (메세지).
+    public void SaveScore()
+    {
+        score.Save();
+    }
+
     private void Awake()
     {
         // 싱글톤 초기화.
